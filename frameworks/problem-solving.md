@@ -1,355 +1,360 @@
 # Problem Solving Framework
 
-## Purpose
+## 1. Purpose
 
-The purpose of this framework is to create a repeatable process for approaching engineering problems with clarity, discipline, and sound judgment.
+The purpose of this framework is to help me approach engineering problems with clarity before jumping into solutions.
 
-The objective is not simply to find an answer.
+This framework exists because many technical mistakes happen before implementation begins. The wrong problem gets solved, assumptions go unchallenged, business context gets ignored, and engineers start building before they fully understand what matters.
 
-The objective is to understand the problem deeply enough that the solution becomes obvious.
+This framework trains the habit of slowing down, defining the real problem, understanding constraints, evaluating options, and documenting the reasoning behind the final decision.
 
-This framework should be used before making important technical decisions, designing systems, debugging failures, implementing automation, or proposing architectural changes.
+The goal is not to find an answer quickly.
 
----
-
-# Core Principle
-
-**Slow down before speeding up.**
-
-Many engineering mistakes happen because solutions are proposed before the problem is fully understood.
-
-The first answer is often an assumption.
-
-The goal is to replace assumptions with evidence.
+The goal is to make a better engineering decision.
 
 ---
 
-# Stage 1: Define The Problem
+## 2. When To Use
 
-## Ask:
+Use this framework when:
 
-- What problem am I actually trying to solve?
-- How do I know this problem exists?
-- Who is experiencing this problem?
-- Is this the root problem or merely a symptom?
-- What evidence supports my understanding?
+* Starting a new technical task.
+* Reviewing a Jira ticket.
+* Designing infrastructure.
+* Writing Terraform.
+* Building CI/CD pipelines.
+* Debugging unclear system behavior.
+* Optimizing cloud costs.
+* Making architecture decisions.
+* Planning automation.
+* Explaining a solution to another engineer or stakeholder.
 
-## Remember:
-
-A perfectly engineered solution to the wrong problem is still a failure.
-
----
-
-# Stage 2: Understand The Context
-
-Technical problems exist inside business systems.
-
-Before proposing solutions, understand the environment.
-
-## Business Questions
-
-- Why does this matter?
-- What value is created by solving this?
-- What happens if nothing changes?
-- What is the opportunity cost?
-
-## Human Questions
-
-- Who owns this?
-- Who maintains this?
-- Who gets paged?
-- Who depends on this system?
-- Who will inherit this after deployment?
-
-## Operational Questions
-
-- Is this production?
-- Is there an SLA?
-- Is downtime acceptable?
-- What systems depend on this?
+If the decision affects cost, reliability, maintainability, security, or another engineer’s future work, this framework should be used.
 
 ---
 
-# Stage 3: Define Success
+## 3. Core Principle
 
-A problem cannot be solved if success is undefined.
+Define the problem before designing the solution.
 
-## Ask:
+A well-built solution to the wrong problem is still a failure.
 
-- What does success look like?
-- How will I know I succeeded?
-- What metrics improve?
-- What metrics should not get worse?
-- How will success be measured six months from now?
+The quality of the solution depends on the quality of the problem definition.
 
 ---
 
-# Stage 4: Identify Constraints
+## 4. Thinking Model
 
-Every engineering decision operates within limitations.
+Problem
+→ Context
+→ Assumptions
+→ Constraints
+→ Options
+→ Tradeoffs
+→ Decision
+→ Validation
+→ Reflection
 
-## Technical Constraints
+This framework is not a checklist to rush through.
 
-- Existing architecture
-- Compatibility requirements
-- Performance requirements
-
-## Business Constraints
-
-- Budget
-- Timeline
-- Team size
-
-## Operational Constraints
-
-- Maintenance burden
-- On-call responsibilities
-- Skill level of the team
-
-## Ask:
-
-- What cannot change?
-- What flexibility do I actually have?
+It is a thinking process that forces better questions before action.
 
 ---
 
-# Stage 5: Challenge Assumptions
+## 5. Step-by-Step Framework
 
-Assumptions create hidden risk.
+### Step 1 — Define The Problem
 
-List every assumption explicitly.
+Before solving anything, write the problem in plain language.
 
-## Ask:
+Ask:
 
-- What am I assuming?
-- What evidence supports this?
-- What if this assumption is wrong?
-- How can I verify it?
+* What is happening?
+* What should be happening instead?
+* Who is affected?
+* How do I know this problem exists?
+* Is this the root problem or only a symptom?
 
-## Example
+Output:
 
-Instead of saying:
+A clear one-sentence problem statement.
 
-"The database is slow."
+Example:
 
-Say:
-
-"I believe database latency is causing the issue because query times have increased by 40%."
-
-Now the assumption can be tested.
+"Terraform deployments are taking too long, causing slower release cycles and delayed infrastructure changes."
 
 ---
 
-# Stage 6: Break Down The System
+### Step 2 — Understand The Business Context
 
-Large problems become manageable when divided into smaller pieces.
+Technical work exists inside a business context.
 
-## Identify:
+Ask:
 
-- Inputs
-- Outputs
-- Dependencies
-- Failure points
-- External systems
+* Why does this matter?
+* What business value is created by solving this?
+* What risk is reduced?
+* What cost is reduced?
+* What happens if we do nothing?
+* Who benefits from this work?
 
-## Ask:
+Output:
 
-- What are the major components?
-- How do they communicate?
-- Where could the problem originate?
-- What assumptions exist between components?
+A short explanation of why the problem matters beyond the technical layer.
 
 ---
 
-# Stage 7: Generate Multiple Solutions
+### Step 3 — Identify Assumptions
 
-Never stop at the first reasonable answer.
+Most bad decisions come from hidden assumptions.
 
-Force yourself to generate at least three possible approaches.
+Ask:
 
-## Ask:
+* What am I assuming is true?
+* What evidence supports this?
+* What evidence is missing?
+* What would prove this assumption wrong?
+* Am I relying on experience, data, or guessing?
 
-- What is the simplest solution?
-- What is the cheapest solution?
-- What is the most scalable solution?
-- What would I do if I had half the budget?
-- What would I do if I had half the time?
+Output:
+
+A list of assumptions that need to be validated.
 
 ---
 
-# Stage 8: Evaluate Tradeoffs
+### Step 4 — Identify Constraints
+
+Every solution operates inside limits.
+
+Ask:
+
+* What is the timeline?
+* What is the budget?
+* What systems already exist?
+* What cannot change?
+* What reliability requirements exist?
+* What security requirements exist?
+* What skill level does the team have?
+* Who will maintain this after implementation?
+
+Output:
+
+A list of constraints that shape the decision.
+
+---
+
+### Step 5 — Break Down The System
+
+Large problems become easier when broken into components.
+
+Ask:
+
+* What systems are involved?
+* What dependencies exist?
+* What inputs and outputs exist?
+* Where could failure happen?
+* What systems communicate with each other?
+* What external services are involved?
+
+Output:
+
+A simple system map or written breakdown of the components involved.
+
+---
+
+### Step 6 — Generate Multiple Options
+
+Do not stop at the first solution.
+
+Ask:
+
+* What is the simplest solution?
+* What is the fastest solution?
+* What is the cheapest solution?
+* What is the most reliable solution?
+* What is the easiest solution to maintain?
+* What would I do if I had half the budget?
+* What would I do if I had half the time?
+
+Output:
+
+At least three possible solution options.
+
+---
+
+### Step 7 — Evaluate Tradeoffs
 
 Every solution sacrifices something.
 
-The objective is not perfection.
+Compare each option across:
 
-The objective is choosing the best compromise.
+* Cost
+* Reliability
+* Complexity
+* Security
+* Maintainability
+* Scalability
+* Operational burden
+* Team ownership
 
-## Evaluate:
+Ask:
 
-### Cost
+* What does this option improve?
+* What does this option make worse?
+* What risk does this introduce?
+* What future work does this create?
+* Would I still choose this if I personally had to maintain it?
 
-- Infrastructure cost
-- Engineering cost
-- Maintenance cost
+Output:
 
-### Complexity
-
-- Operational complexity
-- Learning curve
-- Future modifications
-
-### Reliability
-
-- Failure tolerance
-- Recovery time
-- Monitoring requirements
-
-### Scalability
-
-- User growth
-- Traffic growth
-- Team growth
-
-### Ownership
-
-- Who maintains this?
-- Can a new engineer understand it?
-- What happens if the primary expert leaves?
+A clear explanation of the tradeoffs between options.
 
 ---
 
-# Stage 9: Conduct A Pre-Mortem
+### Step 8 — Make The Decision
 
-Assume the project has failed.
+After analysis, choose a direction.
 
-Ask why.
+Document:
 
-## Questions
+* What option was chosen.
+* Why it was chosen.
+* What alternatives were rejected.
+* What tradeoffs were accepted.
+* What risks remain.
 
-- What breaks first?
-- What assumptions proved false?
-- What security risks exist?
-- What operational risks exist?
-- What costs could unexpectedly increase?
-- What documentation is missing?
-- What happens at 10x scale?
-- What happens during a production incident?
+Output:
 
-The purpose is not to create fear.
-
-The purpose is to expose blind spots before they become outages.
+A decision statement that future engineers can understand.
 
 ---
 
-# Stage 10: Make The Decision
+### Step 9 — Define Validation
 
-Eventually analysis must end.
+A solution is not complete until it is validated.
 
-A decision should be made based on the best available evidence.
+Ask:
 
-## Record:
+* How will I know this worked?
+* What metric should improve?
+* What metric should not get worse?
+* What logs, alerts, or dashboards confirm success?
+* How will I detect if this caused a new issue?
 
-- Problem Statement
-- Chosen Solution
-- Why it was chosen
-- Alternatives considered
-- Tradeoffs accepted
+Output:
 
-Future engineers should understand why this decision was made.
-
----
-
-# Stage 11: Validate
-
-After implementation, verify reality.
-
-## Ask:
-
-- Did this solve the original problem?
-- Were my assumptions correct?
-- Did any unexpected problems appear?
-- What metrics changed?
-- Would I make the same decision again?
+A validation plan.
 
 ---
 
-# Stage 12: Capture The Lesson
+### Step 10 — Reflect
 
-Every project should improve future decision making.
+After the work is complete, review the decision.
 
-## Reflection Questions
+Ask:
 
-- What surprised me?
-- What mistake did I almost make?
-- What would I teach another engineer?
-- What question should I add to my framework?
-- How has my understanding changed?
+* Did this solve the original problem?
+* Were my assumptions correct?
+* What surprised me?
+* What did I misunderstand?
+* What would I do differently?
+* What should I remember next time?
 
-Knowledge fades.
+Output:
 
-Lessons written down compound.
-
----
-
-# Daily Engineering Checklist
-
-Before making an important technical decision, ask:
-
-## Problem
-
-- [ ] What problem am I solving?
-- [ ] Is this the real problem?
-
-## Business
-
-- [ ] Why does this matter?
-- [ ] What happens if we do nothing?
-
-## Assumptions
-
-- [ ] What am I assuming?
-- [ ] How can I verify it?
-
-## Constraints
-
-- [ ] What limitations exist?
-
-## Solutions
-
-- [ ] Have I considered multiple approaches?
-
-## Tradeoffs
-
-- [ ] What am I gaining?
-- [ ] What am I sacrificing?
-
-## Cost
-
-- [ ] What does this cost today?
-- [ ] What does this cost at 10x scale?
-
-## Ownership
-
-- [ ] Who maintains this?
-- [ ] Who gets paged?
-- [ ] What happens if the expert leaves?
-
-## Failure
-
-- [ ] What could break?
-- [ ] How would I know?
-
-## Reflection
-
-- [ ] What lesson should I remember?
+A short lesson learned.
 
 ---
 
-# Final Thought
+## 6. Critical Questions
 
-Engineering is not the pursuit of perfect solutions.
+* What problem am I actually solving?
+* Is this the real problem or a symptom?
+* Why does this matter to the business?
+* What assumptions am I making?
+* What constraints exist?
+* What options have I considered?
+* What are the tradeoffs?
+* What could fail?
+* What will this cost now?
+* What will this cost at 10x scale?
+* Who owns this after implementation?
+* How will I know this worked?
+* What should future me remember?
 
-It is the disciplined practice of making the best possible decisions with incomplete information.
+---
 
-The quality of those decisions is determined by the quality of the questions asked before the work begins.
+## 7. Common Mistakes
+
+* Jumping to a solution before defining the problem.
+* Solving symptoms instead of root causes.
+* Ignoring business context.
+* Choosing the first solution that seems reasonable.
+* Forgetting cost impact.
+* Forgetting operational ownership.
+* Overengineering.
+* Failing to document why a decision was made.
+* Not validating the outcome.
+* Not capturing lessons learned.
+
+---
+
+## 8. Senior Engineer Perspective
+
+A senior engineer does not simply ask, “Can this be built?”
+
+A senior engineer asks:
+
+* Should this be built?
+* Why does it matter?
+* What tradeoffs are acceptable?
+* Who owns it later?
+* What happens when it fails?
+* What does it cost?
+* How does this affect the business?
+* Can another engineer understand and maintain it?
+
+The goal is not only technical correctness.
+
+The goal is responsible engineering judgment.
+
+---
+
+## 9. Output
+
+By the end of this framework, I should have:
+
+* A clear problem statement.
+* Business context.
+* Assumptions.
+* Constraints.
+* Multiple solution options.
+* Tradeoff analysis.
+* Final decision.
+* Validation plan.
+* Lesson learned.
+
+This output can later become:
+
+* A problem-session note.
+* A case study.
+* An after-action review.
+* A portfolio artifact.
+* A future Claude-guided engineering session.
+
+---
+
+## 10. Framework Evolution
+
+After using this framework, ask:
+
+* What assumption was wrong?
+* What question would have prevented a mistake?
+* Should that question become permanent?
+* Should this framework be updated?
+* What would a Staff engineer have noticed earlier?
+* What lesson should compound into future decisions?
+
+The framework should improve through real use.
+
+Every project, mistake, debugging session, and decision should make the Engineering Operating System stronger.
