@@ -122,6 +122,18 @@ If those questions cannot be answered, the case study is incomplete.
 
 ---
 
+## Available Case Studies
+
+### Building the Engineering Operating System
+
+A meta case study explaining why this system was created and how its architecture was designed.
+
+### Terraform Performance Case Study
+
+A realistic DevOps case study showing how the EOS can be applied to a Terraform deployment performance problem.
+
+---
+
 ## Final Principle
 
 The purpose of these case studies is not to document projects.
