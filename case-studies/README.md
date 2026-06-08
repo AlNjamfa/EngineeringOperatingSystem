@@ -14,6 +14,41 @@ The emphasis is on **how the engineer thought**, not simply **what the engineer 
 
 ---
 
+## Available Case Studies
+
+### Building the Engineering Operating System
+
+A meta case study explaining why the Engineering Operating System was created, how the architecture was designed, and how the project evolved from a simple portfolio idea into a deliberate practice system for engineering judgment.
+
+This case study demonstrates:
+
+* Problem definition
+* Scope control
+* Tradeoff analysis
+* Architecture decisions
+* Continuous improvement
+* Engineering reflection
+
+---
+
+### Terraform Performance Case Study
+
+A realistic DevOps case study showing how the Engineering Operating System can be applied to a Terraform deployment performance problem.
+
+The scenario focuses on a Terraform pipeline that increased from approximately 4 minutes to 18 minutes after infrastructure modules were added.
+
+This case study demonstrates:
+
+* Evidence-based reasoning
+* Assumption testing
+* Tradeoff analysis
+* FinOps awareness
+* Deployment risk thinking
+* Validation planning
+* After Action Review
+
+---
+
 ## Why Case Studies Matter
 
 Technology changes rapidly.
